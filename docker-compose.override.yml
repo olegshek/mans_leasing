@@ -1,0 +1,40 @@
+version: '3'
+
+
+services:
+  mans_leasing:
+    build:
+      context: .
+      dockerfile: docker/mans_leasing/Dockerfile.dev
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    volumes:
+      - ./:/app/
+    ports:
+      - 8000:8000
+
+  celery-worker:
+    build:
+      context: .
+      dockerfile: docker/mans_leasing/Dockerfile.dev
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    volumes:
+       - ./:/app/
+    user: ${UID}:${GID}
+
+  db:
+    ports:
+      - 5433:5432
+
+  nginx:
+    volumes:
+      - ./docker/nginx/letsencrypt/fullchain.pem:/etc/letsencrypt/live/${PRODUCTION_HOST}/fullchain.pem
+      - ./docker/nginx/letsencrypt/privkey.pem:/etc/letsencrypt/live/${PRODUCTION_HOST}/privkey.pem
+      - ./media:/app/media:ro
+      - ./static:/app/static:ro
+    ports:
+      - 80:80
+      - 443:443

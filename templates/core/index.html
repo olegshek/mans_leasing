@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manslizings</title>
+
+    <!-- Metabox -->
+    <!-- <meta property="og:type" content="website">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="Новогоднее оформление в Узбекистане под ключ - Christmas.uz">
+    <meta property="og:description" content="Оформление ресторанов, офисов, гос. учреждений, домов и квартир под ключ в Ташкенте. Работаем качественно и быстро!">
+    <meta property="og:url" content="https://christmas.uz">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="https://christmas.uz/images/image1.jpg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta name="yandex-verification" content="90bc24a74789ee56" /> -->
+
+    <!-- Plugins -->
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/brands.min.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/solid.min.css' />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="logo">
+            <img src={% static "images/logo.png" %} alt="">
+        </div>
+        <div class="spinner-box">
+            <div class="pulse-container">  
+            <div class="pulse-bubble pulse-bubble-1"></div>
+            <div class="pulse-bubble pulse-bubble-2"></div>
+            <div class="pulse-bubble pulse-bubble-3"></div>
+            </div>
+        </div>
+        <p>Загрузка...</p>
+    </div>
+
+    <div class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <div class="logo"><img src={% static "images/logo.png" %} alt=""></div>
+                <div class="menu">
+                    <div class="logo show-sm"><img src={% static "images/logo.png" %} alt=""></div>
+                    <ul class="list">
+                        <li><a href="#">Финансовые продукты</a></li>
+                        <li><a href="#">Подать заявку</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                    <div class="lang show-sm"><a href="./lv/"><img src={% static "images/russia.svg" %} alt=""></a></div>
+                </div>
+                <div class="navbar_contacts">
+                    <div class="lang hide-sm"><a href="./lv/"><img src={% static "images/russia.svg" %} alt=""></a></div>
+                    <div class="phone">
+                        <a href="#"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                <div class="toggle_btn_wrapper show-sm">
+                    <div class="toggle-btn">
+                        <div class="cross">
+                            <label>
+                                <input type="checkbox" class="toggle-input">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="25" />
+                                    <path class="line--1" d="M0 40h62c13 0 6 28-4 18L35 35" />
+                                    <path class="line--2" d="M0 50h70" />
+                                    <path class="line--3" d="M0 60h62c13 0 6-28-4-18L35 65" />
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="beginning-text">
+            <div class="container-mini">
+                <h2 class="title-primary">Заявка на кредит на покупку авто</h2>
+                <p>Наиболее удобное решение для покупки нового или подержанного автомобиля, мотоцикла или любого другого транспортного средства. Кроме того, кредит можно оформить, пока новое транспортное средство все еще выбирается, чтобы найти лучшее предложение и Вы сразу смогли его купить. Деньги на счету клиента сразу после заключения договора, но транспортное средство можно выбрать в течение 30 дней.</p>
+            </div>
+        </div>
+        <div id="uptorequest" class="request">
+            <div class="container-mini">
+                <div class="with-form" data-aos="fade-up">
+                    <div class="progress_bar_wrapper">
+                        <p>Вероятность одобрения кредита</p>
+                        <p class="percent"><span>20</span> %</p>
+                        <div class="progress_bar">
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <form id="fuckingform" action="https://manslizings.lv/api/leasing/request" method="POST" enctype="multipart/form-data">
+                        <div class="swiper-container swiper-no-swiping">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide start">
+                                    <div class="flex">
+                                        <div class="left">
+                                            <div class="flex">
+                                                <div class="first">
+                                                    <label>
+                                                        <h4>Сумма кредита</h4>
+                                                        <p class="value"><i></i> <i class="currency">&euro;</i></p>
+                                                        <div class="with-range">
+                                                            <button type="button" id="summ_dec">-</button>
+                                                            <input oninput="setValue(this.value); updateCredit();" id="input_summ" type="range" name="summ" min="10000" max="100000">
+                                                            <button type="button" id="summ_inc">+</button>
+                                                        </div>
+                                                    </label>
+                                                    <label>
+                                                        <h4>Срок кредита</h4>
+                                                        <p class="years"><i></i> <b class="years_text" data-less="года" data-more="лет">года</b></p>
+                                                        <div class="with-range">
+                                                            <button type="button" id="years_dec">-</button>
+                                                            <input oninput="setYears(this.value); updateCredit();" id="input_years" type="range" name="years" min="1" max="8">
+                                                            <button type="button" id="years_inc">+</button>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <div class="second">
+                                                    <h3>Ежемесячный платёж<span class="red">*</span>:</h3>
+                                                    <div class="price"><span class="num"></span> <span>€/мес.</span></div>
+                                                    <p style="text-align: center;"><span class="red">*</span> Кредитный калькулятор информативен! Мы гарантируем безопасность ваших личных данных.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <label>
+                                                <div class="icon">
+                                                    <img src={% static "images/mail.svg" %} alt="">
+                                                </div>
+                                                <input type="email" name="email" placeholder="Почта" required>
+                                            </label>
+                                            <label>
+                                                <div class="icon">
+                                                    <img src={% static "images/phone.svg" %} alt="">
+                                                </div>
+                                                <input type="text" name="phone" placeholder="Телефон" required>
+                                            </label>
+                                            <label class="agreement">
+                                                <input type="checkbox" name="agree" required> Я прочитал и согласен с <br><a href="#">политикой конфиденциальности</a>.
+                                            </label>
+                                            <a href="#uptorequest" class="btn-primary pulse next">Продолжить</a>
+                                            <div class="crypted"><div class="icon"><i class="fas fa-key"></i></div> Ваши данные зашифрованы сертификатами высочайшего качество</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide step1">
+                                    <div class="flex">
+                                        <div class="left">
+                                            <div class="flex">
+                                                <div class="third">
+                                                    <label class="animated">
+                                                        <span>ФИО</span>
+                                                        <input type="text" name="fio" required>
+                                                    </label>
+                                                    <label class="animated">
+                                                        <span>Персональный код</span>
+                                                        <input type="text" name="personalCode" required>
+                                                    </label>
+                                                </div>
+                                                <div class="fourth">
+                                                    <label>
+                                                        <span>Вид проживания</span>
+                                                        <select name="accommodation_type" required>
+                                                            <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+                                                            <option value="Своя квартира">Своя квартира</option>
+                                                            <option value="Дом в собственноси">Дом в собственноси</option>
+                                                            <option value="Съемная квартира/дом">Съемная квартира/дом</option>
+                                                            <option value="Проживание с родителями">Проживание с родителями</option>
+                                                            <option value="Другое">Другое</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <label>
+                                                <div class="icon">
+                                                    <img src={% static "images/euro.svg" %} alt="">
+                                                </div>
+                                                <input type="text" name="summ_input" placeholder="Сумма" required>
+                                            </label>
+                                            <label>
+                                                <div class="icon">
+                                                    <img src={% static "images/year.svg" %} alt="">
+                                                </div>
+                                                <input type="text" name="years_input" placeholder="Годы" required>
+                                            </label>
+                                            <div class="price"><span class="num"></span> <span>€/мес.</span></div>
+                                            <input type="hidden" name="percented" value="">
+                                            <a href="#uptorequest" class="btn-primary pulse next">Продолжить</a>
+                                        </div>
+                                        <button class="btn-back"><i class="fas fa-chevron-left"></i> Шаг назад</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide step2">
+                                    <div class="step-number">Шаг 2 / 4</div>
+                                    <div class="flex">
+                                        <div class="half">
+                                            <label>
+                                                <span>Пол</span>
+                                                <select name="sex" required>
+                                                    <option value="Мужской" data-genderly="Уважаемый">Мужской</option>
+                                                    <option value="Женский" data-genderly="Уважаемая">Женский</option>
+                                                </select>
+                                            </label>
+                                            <hr>
+                                            <label>
+                                                <span>Иждивенцы</span>
+                                                <select name="dependents" required>
+                                                    <option value="0">0</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="10 и более">10 и более</option>
+                                                </select>
+                                            </label>
+                                            <hr>
+                                            <label>
+                                                <span>Пожалуйста, введите информацию о своих доходах.</span>
+                                                <span>Вид доходов</span>
+                                                <select name="incomeType" required>
+                                                    <option value="Зарплата">Зарплата</option>
+                                                    <option value="Пенсия/Социальное пособие">Пенсия/Социальное пособие</option>
+                                                    <option value="Алименты">Алименты</option>
+                                                    <option value="Съем/аренда">Съем/аренда</option>
+                                                    <option value="Съем/аренда наличными деньгами">Съем/аренда наличными деньгами</option>
+                                                    <option value="Другие доходы">Другие доходы</option>
+                                                    <option value="Другие доходы только наличнымы деньгами">Другие доходы только наличнымы деньгами</option>
+                                                </select>
+                                            </label>
+                                            <label class="animated">
+                                                <span>Сумма дохода</span>
+                                                <input type="text" name="income" required>
+                                            </label>
+                                        </div>
+                                        <div class="half">
+                                            <label>
+                                                <span>Цель кредита</span>
+                                                <select name="credit_aim" required>
+                                                    <option value="Для покупки жилья">Для покупки жилья</option>
+                                                    <option value="Для покупки другой (нежилой) недвижимости">Для покупки другой (нежилой) недвижимости</option>
+                                                    <option value="Для покупки транспортных средств">Для покупки транспортных средств</option>
+                                                    <option value="Финансирование для образования">Финансирование для образования</option>
+                                                    <option value="Для путешествия">Для путешествия</option>
+                                                    <option value="Для медицинских услуг">Для медицинских услуг</option>
+                                                    <option value="Для повседневного потребления">Для повседневного потребления</option>
+                                                    <option value="Для бытовой техники / электроники">Для бытовой техники / электроники</option>
+                                                    <option value="Для рефинансирования кредитов">Для рефинансирования кредитов</option>
+                                                    <option value="Для ремонта недвижимости">Для ремонта недвижимости</option>
+                                                </select>
+                                            </label>
+                                            <hr>
+                                            <label>
+                                                <span>Семейное положение</span>
+                                                <select name="familyType" required>
+                                                    <option value="Не женат / не замужем">Не женат / не замужем</option>
+                                                    <option value="Гражданский брак">Гражданский брак</option>
+                                                    <option value="Женат / замужем">Женат / замужем</option>
+                                                    <option value="Разведен / разведена">Разведен / разведена</option>
+                                                    <option value="Вдовец / вдова">Вдовец / вдова</option>
+                                                </select>
+                                            </label>
+                                            <hr>
+                                            <label class="animated">
+                                                <span>Город проживания</span>
+                                                <input type="text" name="living_city" required>
+                                            </label>
+                                            <label class="animated">
+                                                <span>Адрес</span>
+                                                <input type="text" name="address" required>
+                                            </label>
+                                            <div class="text-right">
+                                                <br>
+                                                <button type="button" class="btn-primary pulse next">Продолжить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn-back"><i class="fas fa-chevron-left"></i> Шаг назад</button>
+                                </div>
+                                <div class="swiper-slide step3">
+                                    <div class="step-number">Шаг 3 / 4</div>
+                                    <div class="flex">
+                                        <div class="half">
+                                            <label>
+                                                <span>Тип занятости</span>
+                                                <select name="workType" required>
+                                                    <option value="Полная занятость">Полная занятость</option>
+                                                    <option value="Работа на определенный срок">Работа на определенный срок</option>
+                                                    <option value="Неполный рабочий день">Неполный рабочий день</option>
+                                                    <option value="Предприниматель">Предприниматель</option>
+                                                    <option value="Самозанятое лицо">Самозанятое лицо</option>
+                                                    <option value="Контракт">Контракт</option>
+                                                    <option value="Cтудент">Cтудент</option>
+                                                    <option value="Инвалидность">Инвалидность</option>
+                                                    <option value="Пенсионер">Пенсионер</option>
+                                                    <option value="Безработный">Безработный</option>
+                                                    <option value="Домохозяйка">Домохозяйка</option>
+                                                    <option value="Другое">Другое</option>
+                                                </select>
+                                            </label>
+                                            <label>
+                                                <span>Образование</span>
+                                                <select name="education" required>
+                                                    <option value="Основное">Основное</option>
+                                                    <option value="Работа на определенный срок">Работа на определенный срок</option>
+                                                    <option value="Среднее">Среднее</option>
+                                                    <option value="Среднее Специальное">Среднее Специальное</option>
+                                                    <option value="Высшее">Высшее</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div class="half">
+                                            <label>
+                                                <span>Должность</span>
+                                                <select name="position" required>
+                                                    <option value="Сотрудник">Сотрудник</option>
+                                                    <option value="Менеджер">Менеджер</option>
+                                                    <option value="Низший чиновник">Низший чиновник</option>
+                                                    <option value="Старший чиновник">Старший чиновник</option>
+                                                    <option value="Исполнительный директор">Исполнительный директор</option>
+                                                    <option value="Офисный работник">Офисный работник</option>
+                                                    <option value="Cпециалист">Cпециалист</option>
+                                                    <option value="Другое">Другое</option>
+                                                </select>
+                                            </label>
+                                            <label>
+                                                <span>Гражданство</span>
+                                                <select name="citizenship" required>
+                                                    <option value="Гражданин Латвии">Гражданин Латвии</option>
+                                                    <option value="Латвийский негражданин">Латвийский негражданин</option>
+                                                    <option value="Другое">Другое</option>
+                                                </select>
+                                            </label>
+                                            <div class="text-right">
+                                                <br>
+                                                <button type="button" class="btn-primary pulse next">Продолжить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn-back"><i class="fas fa-chevron-left"></i> Шаг назад</button>
+                                </div>
+                                <div class="swiper-slide step4">
+                                    <div class="step-number">Шаг 4 / 4</div>
+                                    <div class="flex">
+                                        <div class="full">
+                                            <h4>Предварительное решение позитивное, для получения окончательного решения требуется выписка со счета</h4>
+                                            <div class="client_name">
+                                                <span class="genderly"></span>
+                                                <span class="name"></span>
+                                                <span class="surname"></span>
+                                            </div>
+                                            <p>Просим загрузить выписку из банковского счета за 6 месяцев со всеми входящими и исходящими платежами.</p>
+                                            <div class="flex-evenly">
+                                                <div><button type="button" id="open_vypiska" class="btn-primary">Добавить выписку со счета</button></div>
+                                                <div><button type="button" id="open_error" class="btn-primary">Не удалось подготовить выписку со счета</button></div>
+                                            </div>
+                                            <p>
+                                                Ваша загруженная выписка по счету зашифрована и хранится в центре обработки данных с высоким уровнем безопасности. <br>
+                                                Обработка персональных данных зарегистрирована в Государственной инспекции данных, регистрационный номер. 004389
+                                            </p>
+                                            <div class="add_vypiska">
+                                                <p class="info">Если Вы не можете добавить выписку со счёта , пожалуйста отправьте её по электронной почте <a href="mailto:info@manslizings.lv">info@manslizings.lv</a></p>
+                                                <p class="success">Информируем, что если у Вас имеется больше чем один банковский счет, добавление всех Ваших выписок со счета может ускорить рассмотрение</p>
+                                                <h4>Подготовьте выписку со своего банковского счета в формате PDF за период: 01.07.2020 – <span class="the_date"></span></h4>
+                                                <div class="text-center">
+                                                    <input type="file" name="vypiska_file" class="btn-primary">
+                                                </div>
+                                            </div>
+                                            <div class="error">Если у вас есть какие-либо вопросы по подготовке выписки по вашему счету, пожалуйста, позвоните <a href="tel:+371-26-612-612">+371-26-612-612</a></div>
+                                            <input type="checkbox" name="driversLicence" checked>
+                                            <input type="checkbox" name="lvCitizen" checked>
+                                            <input type="checkbox" name="politicalPerson" checked>
+                                            <input type="hidden" name="workplace" value="Sia student">
+                                            <input type="hidden" name="workMonths" value="46">
+                                            <input type="hidden" name="clientAddress" value="Some address">
+                                            <input type="hidden" name="livingPlaceType" value="test">
+                                            <input type="hidden" name="incomeFamily" value="test">
+                                            <input type="hidden" name="otherLeasingPayments" value="123">
+                                            <input type="hidden" name="kidsNum" value="1">
+                                            <input type="hidden" name="ktpFirstName" value="Janis Ivanovs">
+                                            <input type="hidden" name="ktpPhone" value="25557779">
+                                            <input type="hidden" name="ktpRelation" value="Draugs">
+                                            <input type="hidden" name="driverFullName" value="Maris Berziņš">
+                                            <input type="hidden" name="driverPersonalCode" value="240570-10679">
+                                            <input type="hidden" name="driverPhone" value="26497979">
+                                            <input type="hidden" name="driverEmail" value="maris@gmail.com">
+                                            <input type="hidden" name="driverAddress" value="test">
+                                            <input type="hidden" name="driverRelation" value="test">
+                                            <input type="hidden" name="origin" value="test">
+                                            <button type="submit" class="btn-primary">Отправить</button><br>
+                                            <button class="btn-back static" style="margin: 0;"><i class="fas fa-chevron-left"></i> Шаг назад</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="with-block">
+            <div class="container">
+                <div class="row">
+                    <div class="left">
+                        <div class="about">
+                            <h2 class="title-primary" data-aos="fade-up">Автокредит</h2>
+                            <p data-aos="fade-up" data-aos-delay="200">Наиболее удобное решение для покупки нового или подержанного автомобиля, мотоцикла или любого другого транспортного средства.Кроме того, кредит можно оформить, пока новое транспортное средство все еще выбирается, чтобы найти лучшее предложение и Вы сразу смогли его купить.Деньги на счету клиента сразу после заключения договора, но транспортное средство можно выбрать в течение 30 дней.</p>
+                        </div>
+                        <div class="advantages">
+                            <h2 class="title-primary" data-aos="fade-up">Преимущества</h2>
+                            <div class="row">
+                                <div class="item" data-aos="fade-up">
+                                    <div class="icon"><img src={% static "images/icon-1.png" %} alt=""></div>
+                                    <h4>Сумма до</h4>
+                                    <h3>25 000 EUR</h3>
+                                </div>
+                                <div class="item" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="icon"><img src={% static "images/icon-2.png" %} alt=""></div>
+                                    <h4>Проценты от</h4>
+                                    <h3>6,9 % в год</h3>
+                                </div>
+                                <div class="item" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="icon"><img src={% static "images/icon-3.png" %} alt=""></div>
+                                    <h4>Срок</h4>
+                                    <h3>3 - 120 месяцев</h3>
+                                </div>
+                                <div class="item" data-aos="fade-up" data-aos-delay="500">
+                                    <div class="icon"><img src={% static "images/icon-3.png" %} alt=""></div>
+                                    <h4>Время рассмотрения</h4>
+                                    <h3>от 1 минуты</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <img src={% static "images/car.png" %} alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="prefs" class="prefs">
+            <div class="container">
+                <div class="row">
+                    <div class="item" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <div>
+                            <p>Подписание контракта онлайн</p>
+                        </div>
+                    </div>
+                    <div class="item" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div>
+                            <p>Доставка договора с курьером</p>
+                        </div>
+                    </div>
+                    <div class="item" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div>
+                            <p>Автомобиль зарегестрируется на Ваше имя</p>
+                        </div>
+                    </div>
+                    <div class="item" data-aos="fade-up">
+                        <div class="icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div>
+                            <p>Доступно от 18 до 75 лет</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacts" id="contacts">
+            <div class="container">
+                <div class="row">
+                    <div class="col logo">
+                        <img src={% static "images/logo.png" %} alt="">
+                    </div>
+                    <div class="col con">
+                        <div class="flex">
+                            <div class="con">
+                                <h3><i class="fas fa-phone"></i> Телефон</h3>
+                                <p><a href="tel:+371-26-612-612">+371-26-612-612</a></p>
+                            </div>
+                            <div>
+                                <h3><i class="fas fa-envelope"></i> Почта</h3>
+                                <p><a href="mailto:info@manslizings.lv">info@manslizings.lv</a></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="socials">
+                            <a target="_blank" href="https://wa.me/37126612612"><i class="fab fa-whatsapp"></i></a>
+                            <a target="_blank" href="https://www.facebook.com/manslizings"><i class="fab fa-facebook"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/manslizings"><i class="fab fa-instagram"></i></a>
+                            <a target="_blank" href="#"><i class="fab fa-telegram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col address">
+                        <h3><i class="fas fa-map-marker-alt"></i> Адрес</h3>
+                        <p>Rīga / Talsi</p>
+                        <br>
+                        <p>В рабочие дни: 9:00 - 18:00</p>
+                        <p>В субботу: 10:00 - 15:00</p>
+                        <p>В воскресенье: Выходной</p>
+                    </div>
+                    <div class="col policy">
+                        <h3>Конфиденциальность</h3>
+                        <p><a href="#">Политика конфиденциальности</a></p>
+                        <p><a href="#">Правила обработки данных</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-block">
+            <div class="container">
+                <p>Informācija par SIA Sefinance / SIA Sefinance Credit sniegtajiem pakalpojumiem: SIA Sefinance / SIA Sefinance Credit piedāvā pārkreditācijas / kredīta apvienošanas, patēriņa kredīta, auto līzinga un aizdevuma pret nekustamā īpašuma ķīlu pakalpojumus. Pārkreditācijas / kredīta apvienošanas, patēriņa kredīta pakalpojumi pieejami ar aizdevuma termiņu no 3 līdz 84 mēnešiem un aizdevuma summu no 500 līdz 15000 EUR un gada procentu likmi no 5,9% līdz 60% (maksimālā likme). Auto līzinga pakalpojums ir pieejams ar aizdevuma termniņu 3 līdz 72 mēnešiem un aizdevuma summu no 500 līdz 50000 EUR un gada procentu likmi no 2% līdz 29% (maksimālā likme). Aizdevuma pret nekustamā īpašuma ķīlu pakalpojums pieejams ar aizdevuma termiņu no 1 līdz 30 gadiem ar aizdevuma summu no 2000 līdz 200000 EUR un gada procentu likmi no 2,9% līdz 23% (maksimālā likme). Reprezentatīvs piemērs pārkreditācijai / kredītu apvienošanai ar 7% likmi atmaksas piemērs: Ņemot aizdevumu 5 000 EUR ar termiņu uz 5 gadiem, kreditoru komisijas maksa – 8%, gada procentu likme (GPL) – 10,78 %, kopējā summa, kas jāmaksā patērētājam - 6 415,59 EUR. Ikmēneša maksājums ir 106,93 EUR. Reprezentatīvs piemērs patēriņa kredītam ar 7% likmi atmaksas piemērs: Ņemot aizdevumu 5 000 EUR ar termiņu uz 5 gadiem, kreditoru komisijas maksa – 8%, gada procentu likme (GPL) – 10,78 %, kopējā summa, kas jāmaksā patērētājam - 6 415,59 EUR. Ikmēneša maksājums ir 106,93 EUR. Reprezentatīvs piemērs auto kredītam ar 6.9% likmi atmaksas piemērs: Ņemot aizdevumu 8 000 EUR ar termiņu uz 5 gadiem, kreditoru komisijas maksa – 8%, gada procentu likme (GPL) – 10,67%, kopējā summa, kas jāmaksā patērētājam - 10 240,50 EUR. Ikmēneša maksājums ir 170,68 EUR. Reprezentatīvs piemērs hipotekārajam kredītam ar 3% likmi atmaksas piemērs: Ņemot a izdevumu 20000 EUR ar termiņu uz 10 gadiem, kreditoru komisijas maksa – 2% (400EUR), gada procentu likme (GPL) – 3.47%, kopējā summa, kas jāmaksā patērētājam – 23638.07 EUR. Ikmēneša maksājums ir 196.98 EUR.</p>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="flex-center">
+                <div>
+                    <p>MansLizings.lv 2020. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById('preloader').style.cssText = 'visibility: hidden; opacity: 0;'
+        });
+    </script>
+
+    <script src={% static 'js/jquery.min.js' %}></script>
+    <script src={% static "js/jquery.maskedinput.min.js" %}></script>
+    <script src={% static 'js/aos.js' %}></script>
+    <script src={% static 'js/swiper.min.js' %}></script>
+    <script src={% static "js/script.js" %}></script>
+    <link rel='stylesheet' href={% static 'css/aos.css' %} />
+    <link rel='stylesheet' href={% static 'css/swiper.min.css'%} />
+
+</body>
+
+</html>

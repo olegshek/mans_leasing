@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  db:
+    restart: unless-stopped
+    volumes:
+      - ./potgres_data/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  redis:
+    restart: unless-stopped
+
+  mans_leasing:
+    restart: unless-stopped
+    volumes:
+      - ./media:/app/media
+      - ./apps/:/app/apps
+      - ./config/:/app/config
+      - ./static/:/app/static
+
+  celery-worker:
+    restart: unless-stopped
+    volumes:
+      - ./media:/app/media
+      - ./apps/:/app/apps
+      - ./config/:/app/config
+      - ./static/:/app/static
+      - ./core/:/app/core
+
+  nginx:
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - ./static/:/app/static
+      - ./media:/app/media
