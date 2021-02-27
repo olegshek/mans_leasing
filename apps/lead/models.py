@@ -29,7 +29,7 @@ class Lead(models.Model):
     position = models.CharField(max_length=100)
     citizenship = models.CharField(max_length=100)
 
-    vypiska_file = models.FileField(upload_to='lead_files/')
+    vypiska_file = models.FileField(upload_to='lead_files/', null=True, blank=True)
     driverLicense = models.CharField(max_length=100, null=True, blank=True)
     lvCitizen = models.CharField(max_length=100)
 
