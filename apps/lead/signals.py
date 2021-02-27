@@ -8,4 +8,4 @@ from apps.lead.tasks import send_lead_to_crm
 @receiver(post_save, sender=Lead)
 def lead_created(sender, instance, *args, **kwargs):
     if kwargs['created']:
-        send_lead_to_crm(instance.id)
+        send_lead_to_crm.delay(instance.id)
