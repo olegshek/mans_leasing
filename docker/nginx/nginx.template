@@ -35,27 +35,7 @@ server {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
 
-    set $to_cloud to_cloud:8000;
-    proxy_pass http://$to_cloud;
-  }
-
-  location /stripe/ {
-    proxy_set_header Host $http_host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
-
-    set $stripe stripe:8000;
-    proxy_pass http://$stripe;
-  }
-
-  location /billing/ {
-    proxy_set_header Host $http_host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
-
-    set $billing billing:8000;
-    proxy_pass http://$billing;
+    set $mans_leasing mans_leasing:8000;
+    proxy_pass http://$mans_leasing;
   }
 }
