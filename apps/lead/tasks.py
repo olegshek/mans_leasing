@@ -3,7 +3,7 @@ import sys
 
 from apps.core.utils.exceptions import MansCRMError
 from apps.lead.models import Lead
-from apps.lead.services.mans_url import send_request_to_mans_crm
+from apps.lead.services.mans_crm import send_request_to_mans_crm
 from config.celery import app
 
 
