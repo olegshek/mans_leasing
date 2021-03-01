@@ -20,9 +20,9 @@ def send_lead_to_crm(lead_id):
         'driverPhone': lead.driverPhone,
         'driverRelation': lead.driverRelation,
         'driversLicence': lead.driverLicense if lead.driverLicense else False,
-        'education': 'HIGHEST',
+        'education': lead.education,
         'email': lead.email,
-        'familyType': 'NON_MARRIED',
+        'familyType': lead.familyType,
         'income': int(lead.income),
         'incomeFamily': 1000000,
         'incomeType': lead.incomeType,
@@ -30,7 +30,7 @@ def send_lead_to_crm(lead_id):
         'ktpFirstName': lead.ktpFirstName,
         'ktpPhone': lead.ktpPhone,
         'ktpRelation': lead.ktpRelation,
-        'livingPlaceType': 'OWN_PROPERTY',
+        'livingPlaceType': lead.livingPlaceType,
         'lvCitizen': True if lead.lvCitizen == 'on' else False,
         'name': lead.fio,
         'origin': 'TEST',
@@ -38,7 +38,7 @@ def send_lead_to_crm(lead_id):
         'personalCode': lead.personalCode,
         'phone': lead.phone,
         'politicalPerson': True if lead.politicalPerson == 'on' else False,
-        'sex': 'MALE',
+        'sex': lead.sex,
         'workMonths': int(lead.workMonths),
         'workplace': lead.workplace,
         'workType': lead.workType
@@ -49,7 +49,7 @@ def send_lead_to_crm(lead_id):
     except MansCRMError:
         logger = logging.getLogger('django')
         logger.error(
-            'Internal Server Error: PCMiler Route State Report Service Error',
+            'Mans CRM Error',
             exc_info=sys.exc_info(),
             extra={'status_code': 500, 'request': None},
         )

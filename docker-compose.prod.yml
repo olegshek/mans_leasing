@@ -26,7 +26,6 @@ services:
       - ./apps/:/app/apps
       - ./config/:/app/config
       - ./static/:/app/static
-      - ./core/:/app/core
 
   nginx:
     restart: unless-stopped

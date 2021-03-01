@@ -174,11 +174,11 @@
                                                         <span>Вид проживания</span>
                                                         <select name="accommodation_type" required>
                                                             <div class="arrow"><i class="fas fa-chevron-down"></i></div>
-                                                            <option value="Своя квартира">Своя квартира</option>
-                                                            <option value="Дом в собственноси">Дом в собственноси</option>
-                                                            <option value="Съемная квартира/дом">Съемная квартира/дом</option>
-                                                            <option value="Проживание с родителями">Проживание с родителями</option>
-                                                            <option value="Другое">Другое</option>
+                                                            <option value="OWN_PROPERTY">Своя квартира</option>
+                                                            <option value="OWN_HOUSE">Дом в собственноси</option>
+                                                            <option value="RENT_PROPERTY">Съемная квартира/дом</option>
+                                                            <option value="WITH_PARENTS">Проживание с родителями</option>
+                                                            <option value="OTHER">Другое</option>
                                                         </select>
                                                     </label>
                                                 </div>
@@ -211,8 +211,8 @@
                                             <label>
                                                 <span>Пол</span>
                                                 <select name="sex" required>
-                                                    <option value="Мужской" data-genderly="Уважаемый">Мужской</option>
-                                                    <option value="Женский" data-genderly="Уважаемая">Женский</option>
+                                                    <option value="MALE" data-genderly="Уважаемый">Мужской</option>
+                                                    <option value="FEMALE" data-genderly="Уважаемая">Женский</option>
                                                 </select>
                                             </label>
                                             <hr>
@@ -272,11 +272,11 @@
                                             <label>
                                                 <span>Семейное положение</span>
                                                 <select name="familyType" required>
-                                                    <option value="Не женат / не замужем">Не женат / не замужем</option>
-                                                    <option value="Гражданский брак">Гражданский брак</option>
-                                                    <option value="Женат / замужем">Женат / замужем</option>
-                                                    <option value="Разведен / разведена">Разведен / разведена</option>
-                                                    <option value="Вдовец / вдова">Вдовец / вдова</option>
+                                                    <option value="NON_MARRIED">Не женат / не замужем</option>
+                                                    <option value="LIVING_TOGETHER">Гражданский брак</option>
+                                                    <option value="MARRIED">Женат / замужем</option>
+                                                    <option value="DIVORCED">Разведен / разведена</option>
+                                                    <option value="WIDOW">Вдовец / вдова</option>
                                                 </select>
                                             </label>
                                             <hr>
@@ -320,11 +320,11 @@
                                             <label>
                                                 <span>Образование</span>
                                                 <select name="education" required>
-                                                    <option value="Основное">Основное</option>
-                                                    <option value="Работа на определенный срок">Работа на определенный срок</option>
-                                                    <option value="Среднее">Среднее</option>
-                                                    <option value="Среднее Специальное">Среднее Специальное</option>
-                                                    <option value="Высшее">Высшее</option>
+                                                    <option value="BASIC">Основное</option>
+{#                                                    <option value="Работа на определенный срок">Работа на определенный срок</option>#}
+                                                    <option value="MIDDLE">Среднее</option>
+                                                    <option value="MIDDLE_SPECIAL">Среднее Специальное</option>
+                                                    <option value="HIGHEST">Высшее</option>
                                                 </select>
                                             </label>
                                         </div>
@@ -392,7 +392,7 @@
                                             <input type="hidden" name="workplace" value="Sia student">
                                             <input type="hidden" name="workMonths" value="46">
                                             <input type="hidden" name="clientAddress" value="Some address">
-                                            <input type="hidden" name="livingPlaceType" value="test">
+                                            <input type="hidden" name="livingPlaceType" value="OWN_PROPERTY">
                                             <input type="hidden" name="incomeFamily" value="test">
                                             <input type="hidden" name="otherLeasingPayments" value="123">
                                             <input type="hidden" name="kidsNum" value="1">
