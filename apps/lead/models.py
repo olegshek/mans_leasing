@@ -30,27 +30,4 @@ class Lead(models.Model):
     citizenship = models.CharField(max_length=100)
 
     vypiska_file = models.FileField(upload_to='lead_files/', null=True, blank=True)
-    driverLicense = models.CharField(max_length=100, null=True, blank=True)
-    lvCitizen = models.CharField(max_length=100)
 
-    politicalPerson = models.CharField(max_length=100)
-    workplace = models.CharField(max_length=100)
-    workMonths = models.CharField(max_length=100)
-    clientAddress = models.CharField(max_length=100)
-    livingPlaceType = models.CharField(max_length=100)
-    incomeFamily = models.CharField(max_length=100)
-    otherLeasingPayments = models.CharField(max_length=100)
-
-    kidsNum = models.CharField(max_length=100)
-    ktpFirstName = models.CharField(max_length=100)
-    ktpPhone = models.CharField(max_length=100)
-    ktpRelation = models.CharField(max_length=100)
-
-    driverFullName = models.CharField(max_length=100)
-    driverPersonalCode = models.CharField(max_length=100)
-    driverPhone = models.CharField(max_length=100)
-    driverEmail = models.CharField(max_length=100)
-    driverAddress = models.CharField(max_length=100)
-    driverRelation = models.CharField(max_length=100)
-
-    origin = models.CharField(max_length=100)

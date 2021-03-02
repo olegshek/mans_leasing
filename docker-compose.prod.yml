@@ -3,8 +3,6 @@ version: "3"
 services:
   db:
     restart: unless-stopped
-    volumes:
-      - ./potgres_data/data:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
